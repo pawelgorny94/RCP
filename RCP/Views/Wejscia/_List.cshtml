@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RCP.Models.Wejscia>
+
+<div id="dane">
+    <table class="striped bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzasWejscia)
+            </th>          
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Karta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Typ)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+        <tbody id="wejsciaTab">
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pracownik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CzasWejscia)
+                    </td>                 
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Karta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Typ)
+                    </td>
+                   
+                    <td>
+                        @if (item.Status)
+                        {
+                            <span class="fa fa-circle" style="color:red;"></span>
+                        }
+                        else
+                        {
+                            <span class="fa fa-circle" style="color:lightgreen;"></span>
+                        }
+                    </td>
+                    <td>
+                        @*<a href='@Url.Action("Edit")'><span class="fa fa-edit"></span></a>
+                        @Html.ActionLink("Details", "Details", new {  }) |
+                        @Html.ActionLink("Delete", "Delete", new {  })
+                        <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>*@
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<script>
+
+    function executeQuery() {
+        $.ajax({
+            url: '@Url.Action("GetData", "Wejscia")',
+            async:false,
+            success: function (data) {
+                // do something with the return value here if you like
+                $('#dane').html(data);
+            }
+        });
+        setTimeout(executeQuery,1000); // you could choose not to continue on failure...
+    }
+
+    $(document).ready(function () {
+        $(window).load(function() { 
+        // run the first time; all subsequent calls will take care of themselves
+            setTimeout(executeQuery, 10000);
+        });
+    });
+</script>

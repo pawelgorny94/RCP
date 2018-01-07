@@ -1,0 +1,91 @@
+﻿@model RCP.Models.Wejscia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Wejscia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unikalny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unikalny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Biuro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Biuro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Karta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Karta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tryb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tryb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

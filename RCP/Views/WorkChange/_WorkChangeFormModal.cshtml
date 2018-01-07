@@ -1,0 +1,112 @@
+﻿@model RCP.Models.Zmiany
+
+<div id="mdlAddFrm" class="modal fade" tabindex="-1" style="z-index:9999999;overflow: visible;" role="dialog">
+    <div class="modal-dialog" style="width: 900px;" role="document">
+@using (Html.BeginForm("AddWorkChange", "WorkChange", FormMethod.Post, new { enctype = "multipart/form-data", id = "addWorkChange" }))
+{
+        <div class="modal-content" style="overflow-y: scroll;
+    max-height: 760px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Dodawanie nowego planu pracy</h4>
+            </div>
+
+            <div class="modal-body">
+               
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="form-group">
+                                <label for="Symbol" style="font-size:24px;">Symbol</label>
+                                @Html.TextBoxFor(model => model.Symbol, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Symbol)
+                                <p class="help-block">Podaj symbol zmiany</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-5">
+                            <div class="form-group">
+                                <label for="City" style="font-size:24px;">Nazwa</label>
+                                @Html.TextBoxFor(model => model.Nazwa, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Nazwa)
+                                <p class="help-block">Podaj nazwę zmiany</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="form-group">
+                                <label for="City" style="font-size:24px;">Data obowiązywania od</label>
+                                @Html.TextBoxFor(model => model.Od, new { @class = "date-picker" })
+                                @Html.ValidationMessageFor(model => model.Od)
+                                <p class="help-block">Podaj date obowiązywania od</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-5">
+                            <div class="form-group">
+                                <label for="City" style="font-size:24px;">Data obowiązywania do</label>
+                                @Html.TextBoxFor(model => model.Do, new { @class = "date-picker" })
+                                @Html.ValidationMessageFor(model => model.Do)
+                                <p class="help-block">Podaj date obowiązywania do</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="City" style="font-size:24px;">Nadgodziny</label>
+                                @*@Html.CheckBoxFor(model => model.Nadgodziny, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Nadgodziny)*@
+                                <br />
+                                <input type="checkbox" id="czyNadgodziny" style="position: relative;left: 0px;opacity: 1;" />
+                                <span class="help-block">Czy możliwe są nadgodziny</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <input id="sbmformconf" type="submit" class="btn btn-primary" style="background-color:#243a51;margin-left:3px;" value="Zapisz">
+                <button type="button" class="btn btn-default" style="background-color:#e40f0f" data-dismiss="modal">Anuluj</button>
+            </div>
+        </div>
+ }
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+
+        $('.date-picker').each(function () {
+            $(this).val("");
+        })
+
+        $('.date-picker').on('click', function () {
+
+            $('.xdsoft_datetimepicker').css('z-index', '999999999');
+
+        })
+        
+
+        var n = new Date($.now());
+        n = n.setMinutes(n.getMinutes() + 2);
+        $('.date-picker').datetimepicker({
+            format: 'Y-m-d H:i',
+            minDate: n,
+            dayOfWeekStart: 1
+        });
+
+    })
+
+</script>

@@ -1,0 +1,331 @@
+﻿@model RCP.Models.Pracownicy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pracownicy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mailing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mailing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDzialu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDzialu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdStanowiska)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdStanowiska)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdKierownika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdKierownika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProjektu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProjektu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kierownik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kierownik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raporty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raporty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KadryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KadryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stawka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stawka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RcpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RcpId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RcpStrefaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RcpStrefaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RcpAlgorytm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RcpAlgorytm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZatr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZatr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtatL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtatM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rights)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rights)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrSplitu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrSplitu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdLinii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdLinii)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nick)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nick)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrKarty1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrKarty1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrKarty2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrKarty2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZwol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZwol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KadryId2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KadryId2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KadryId3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KadryId3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassExpire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassExpire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OkresProbnyDo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OkresProbnyDo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass4)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

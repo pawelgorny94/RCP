@@ -1,0 +1,203 @@
+﻿@model RCP.Models.Zmiany
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zmiany</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Od)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Od)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Do)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Do)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stawka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stawka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ikona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ikona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kolor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kolor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypZmiany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypZmiany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nadgodziny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nadgodziny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NadgodzinyDzien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NadgodzinyDzien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NadgodzinyNoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NadgodzinyNoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Margines)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Margines)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZgodaNadg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZgodaNadg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kolejnosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kolejnosc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NowaLinia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NowaLinia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Widoczna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Widoczna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HideZgoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HideZgoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObetnijOdGory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObetnijOdGory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarginesNadgodzin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarginesNadgodzin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Par1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Par1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Par2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Par2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

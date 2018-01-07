@@ -1,0 +1,69 @@
+﻿body {
+}
+
+hr{
+    color: #d4d4d4;
+    border: 0.6px solid
+}
+
+
+.navbar-inverse {
+    background-color: #243a51 !important;
+    border-color:#243a51 !important;
+}
+
+.user-view{
+     background-color: #243a51 !important;
+}
+
+#slide-out a:hover, a:focus{
+    text-decoration:none;
+}
+
+#slide-out>li>a{
+    white-space:nowrap;
+}
+
+.user-view a:first-of-type{
+    margin-top: 50px;
+}
+
+.user-view .fa:first-of-type{
+    zoom:2.7;
+    color: white;
+    margin-top: 30px;
+}
+
+.user-view p{
+    margin-left:15px;
+}
+
+#slide-out li>a>i{
+    margin-right:20px;
+}
+#dane {
+    max-height: 500px;
+    /*overflow-y: scroll;*/
+}
+
+.modal{
+    background-color: inherit;
+    max-height:none !important;
+    width:inherit !important;
+}
+
+
+.card-panel:hover{
+    color:white !important;   
+    background-color:#243a51 !important;
+    transition: background-color .5s;
+}
+
+.form-group a{
+    background-color:#243a51 !important;
+}
+
+#danePrac {
+    height:600px;
+    overflow-y:scroll;
+}

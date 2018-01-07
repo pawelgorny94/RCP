@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Raport frekwencji pracownika</h4>
+<br />
+
+
+<div class="row form-group">
+
+    <div class="col-lg-5">
+        <div class="input-group">
+            <span class="input-group-addon">Wybierz pracownika</span>
+            @Html.DropDownList("GroupSelect", ViewBag.PracList as SelectList, "wszyscy pracownicy ...", new { @class = "form-control group-select" })
+        </div>
+    </div>   
+
+    <div class="col-lg-5 spoznieniadiv">
+       <input type="checkbox" id="spoznienia"  />
+        <span> Zaznacz dni ze spoźnieniami</span>
+    </div> 
+
+</div>
+<hr />
+<br />
+
+
+@{Html.RenderAction("CalendarResult", new { lateness = "0" });}
+
+
+
+<style>
+    .spoznieniadiv{
+        zoom: 1.35;
+    margin-top: 4px;
+    }
+    #spoznienia{
+      left: 0px;
+    opacity: 1;
+    }
+
+
+</style>

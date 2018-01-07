@@ -1,0 +1,273 @@
+﻿@model RCP.Models.PlanPracy
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PlanPracy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPracownika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPracownika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdZmiany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdZmiany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdKierownikaZm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdKierownikaZm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzasIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzasIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzasOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzasOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Czas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Czas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzasZm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzasZm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NadgodzinyDzien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NadgodzinyDzien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nocne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nocne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Absencja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Absencja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Akceptacja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Akceptacja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAcc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAcc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdKierownikaAcc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdKierownikaAcc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_CzasIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_CzasIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_CzasOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_CzasOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_CzasZm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_CzasZm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_NadgodzinyDzien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_NadgodzinyDzien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_Nocne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_Nocne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uwagi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdZmianyKorekta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdZmianyKorekta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NadgodzinyNoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NadgodzinyNoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.k_NadgodzinyNoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.k_NadgodzinyNoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alerty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alerty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n50)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n50)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n100)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n100)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.d50)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.d50)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.d100)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.d100)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WymiarKorekta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WymiarKorekta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wymiar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wymiar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

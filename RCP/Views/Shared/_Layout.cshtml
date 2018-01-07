@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")  
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+  
+    <link href="~/Content/materialize/css/materialize.min.css" rel="stylesheet" />
+    <script src="~/Scripts/materialize/materialize.min.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/RcpStyles.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Scripts/jquery.datetimepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.datetimepicker.full.min.js"></script>
+    
+</head>
+
+@using Microsoft.AspNet.Identity
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Strona główna", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Informacje", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <ul id="slide-out" style="transform: translateX(0px);" class="side-nav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    @*<img src="images/office.jpg">*@
+                    @*<i class="fa fa-user-circle"></i>*@
+                </div>
+               @*<img class="circle" src="images/yuna.jpg"*@<p><span class="fa fa-user-circle"></span></p>
+                <p> <span class="white-text name">Administrator</span></p>
+                @if (Request.IsAuthenticated)
+                {
+                    <p> <span class="white-text email">@User.Identity.GetUserName()</span></p>
+                }
+            </div>
+        </li>
+        <li><a href="@Url.Action("Employee","WorkPlan")"><i class="fa fa-group"></i>Pracownicy</a></li>
+        <li><a href="@Url.Action("Index","Wejscia")"><i class="fa fa-user"></i>Podgląd wejść</a></li>
+        <li><a href="@Url.Action("Index","WorkChange")"><i class="fa fa-paper-plane-o"></i>Plan pracy</a></li>
+        <li><a href="@Url.Action("Index","CreateWorkPlan")"><i class="fa fa-paper-plane"></i>Ustalanie planów pracy</a></li>
+        <li><a href="@Url.Action("Info","WorkPlan")"><i class="fa fa-shopping-bag"></i>Przypisane plany pracy</a></li>
+        <li><a href="@Url.Action("Calendar","CreateWorkPlan")"><i class="fa fa-flag"></i>Raporty</a></li>
+        <li><a class="subheader"></a></li>
+        <li><a class="waves-effect" href="#!"></a></li>
+    </ul>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="bottom:0">
+            <p>&copy; Rejestracja Czasu Pracy @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+  
+    @RenderSection("scripts", required: false)
+   
+</body>
+</html>

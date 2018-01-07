@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RCP.Models.PlanPracy>
+
+
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Informacja o przypisanaych planach pracy dla pracowników </h4>
+
+<hr />
+<br />
+
+<div id="danePracZmian">
+    <table class="striped bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NazwaZmiany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzasIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzasOut)
+            </th>
+            
+            <th></th>
+        </tr>
+        <tbody id="wejsciaTab">
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pracownik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NazwaZmiany)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CzasIn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CzasOut)
+                    </td>                   
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>

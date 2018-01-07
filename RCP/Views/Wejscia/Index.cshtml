@@ -1,0 +1,55 @@
+﻿@model IEnumerable<RCP.Models.Wejscia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h4>Podgląd wejść pracowników w czasie rzeczywistym</h4>
+<hr />
+<br />
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@{Html.RenderAction("GetData"); }
+<div class="progress">
+    <div class="indeterminate"></div>
+</div>
+
+<script>
+
+   
+
+    @*$(function () {
+
+        window.setInterval(function () {
+
+
+
+        $.ajax({
+            url: '@Url.Action("GetData", "Wejscia")',
+            type: "GET",
+            success: function (result) {
+                $.each(result, function (i, item) {
+                    var $tr = $('<tr>').append(
+                        $('<td>').text(item.Nazwa),
+                        $('<td>').text(item.Unikalny),
+                        $('<td>').text(item.Biuro),
+                        $('<td>').text(item.Post),
+                        $('<td>').text(item.Karta),
+                        $('<td>').text('cos'),
+                        $('<td>').text(item.Tryb),
+                        $('<td>').text(item.TypM),
+                        $('<td>').text(item.Resultat));
+                    //).appendTo('#wejsciaTab');
+
+                    //console.log($tr.wrap('<p>').html());
+                });
+            }
+        });
+
+        }, 1000);
+    })*@
+
+</script>

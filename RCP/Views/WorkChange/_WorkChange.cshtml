@@ -1,0 +1,38 @@
+﻿<div @model IEnumerable<RCP.Models.Zmiany>
+     
+     class="row">
+    @foreach (var item in Model)
+    {
+        <a href="javascript:">
+            <div class="col s4">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        @if (ViewBag.Edit != null)
+                        {
+                        <input type="checkbox" class="checkAll" name="plan" value="@item.Id" style="float:right;position:static;opacity:1;"  />
+                        }
+                        <div class="col s2">
+                            <i style="background-color:@item.Kolor;zoom: 1.8;padding: 4px;border: 1px solid black;">@item.Symbol</i>
+                        </div>
+                        <div class="col s8" style="margin-left: 5% !important;">
+                            <span class="black-text" style="font-weight:bold;text-transform:uppercase;">
+                                @item.Nazwa
+                            </span>
+                            <p> @item.Od.ToShortTimeString() - @item.Do.ToShortTimeString()</p>
+                            @if (item.Nadgodziny.Equals("1"))
+                            {
+                                <p> Nadgodziny: Tak </p>
+                            }else
+                            {
+                              <p>  Nadgodziny: Nie </p>
+                            }
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+
+</div>

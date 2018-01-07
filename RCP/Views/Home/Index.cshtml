@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/weatherApi/index.js"></script>
+<script src="~/Scripts/weatherApi/autocomplete.js"></script>
+<link href="~/Scripts/weatherApi/weather.css" rel="stylesheet" />
+
+<br />
+<br />
+    <div class="weather1"></div>
+    
+<script src="~/Scripts/weatherApi/app.js"></script>
+<script>
+
+    $(function(){
+        $('.weather1').weather({
+
+            // language
+            lang: 'en',
+
+            // city name
+            city: 'Bydgoszcz, PL',
+
+            // 'C' or 'F'
+            tempUnit: 'C',
+
+            // min length of autocomplete
+            autocompleteMinLength: 3,
+
+            // shows description
+            displayDescription: true,
+
+            // shows min/max temperature
+            displayMinMaxTemp: true,
+
+            // shows wind
+            displayWind: false,
+
+            // shows humidity
+            displayHumidity: false,
+
+            // fix location
+            fixLocation: false,
+
+            // API
+            url: 'http://api.openweathermap.org/data/2.5/forecast?appid=2de143494c0b295cca9337e1e96b00e0&cnt=1&units=metric'
+
+        });
+    
+    })
+</script>

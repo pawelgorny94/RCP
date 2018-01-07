@@ -1,0 +1,139 @@
+﻿@model IEnumerable<RCP.Models.Emlopyee>
+
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Lista zatrudnionych pracowników</h4>
+<br />
+<br />
+<div class="form-group">
+    <div class="row">
+
+        <div class="col-lg-4">
+            <input id="imie" type="text" placeholder="Imie"/>
+        </div>
+        <div class="col-lg-4">
+            <input id="nazwisko" type="text" placeholder="Nazwisko" />
+        </div>
+        <div class="col-lg-4">
+            
+            <input id="stanowisko" type="text" placeholder="Stanowisko" />
+        </div>
+    </div>
+    <div class="row">
+        <a href="javascript:" style="float:right;" class="btn btn-default"> Szukaj </a>
+    </div>
+
+</div>
+
+
+
+<hr />
+
+<br />
+
+
+
+<div id="danePrac">
+    <table class="striped bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dzial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stanowisko)
+            </th>
+            
+           
+        </tr>
+        <tbody id="wejsciaTab">
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imie)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dzial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stanowisko)
+                    </td>
+                   
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<script>
+
+    $(function () {
+
+        $(document).on('keyup', '#imie', function () {
+            var val = $(this).val();
+            $('#wejsciaTab tr').each(function () {
+                var that = $(this);
+                if ($('td:first', $(this)).text().toLowerCase().indexOf(val) < 0) {
+                    that.hide();
+                } else {
+                    that.show();
+                }
+               
+            })
+        });
+
+
+        $(document).on('keyup', '#nazwisko', function () {
+            var val = $(this).val();
+            $('#wejsciaTab tr').each(function () {
+                var that = $(this);
+               // alert($('td:eq(2)', $(this)).text())
+                if ($('td:eq(1)', $(this)).text().toLowerCase().indexOf(val) < 0) {
+                    that.hide();
+                } else {
+                    that.show();
+                }
+
+            })
+        });
+
+        $(document).on('keyup', '#stanowisko', function () {
+            var val = $(this).val();
+            $('#wejsciaTab tr').each(function () {
+                var that = $(this);
+                // alert($('td:eq(2)', $(this)).text())
+                if ($('td:eq(4)', $(this)).text().toLowerCase().indexOf(val) < 0) {
+                    that.hide();
+                } else {
+                    that.show();
+                }
+
+            })
+        });
+
+    })
+</script>
+
