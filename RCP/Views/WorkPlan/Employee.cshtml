@@ -55,6 +55,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Stanowisko)
             </th>
+            <th>
+               
+            </th>
             
            
         </tr>
@@ -79,7 +82,10 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Stanowisko)
                     </td>
-                   
+                   <td>
+                       @*@Html.ActionLink("Mobile","SendDataToMobile",)*@
+                       <a href="@Url.Action("SendDataToMobile",new {id=item.Id.ToString()})"><span class="glyphicon glyphicon-phone"></span></a>
+                   </td>
                 </tr>
 
             }

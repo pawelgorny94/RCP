@@ -7,7 +7,7 @@ namespace RCP.Models
 {
     public class Emlopyee
     {
-       // public int Id { get; set; }
+        public int Id { get; set; }
        
         public string Imie { get; set; }
         

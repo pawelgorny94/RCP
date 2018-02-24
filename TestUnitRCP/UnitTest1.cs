@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Collections.Generic;
 
 
 namespace TestUnitRCP
@@ -14,12 +15,31 @@ namespace TestUnitRCP
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        //sprawdzamy czy zarejestrowane zdarzenie wejścia/wyjścia ma przypisaną kartę
+        public void CheckCardIsNull()
         {
+            Wejscia wejscie = new Wejscia();
+            wejscie.Tryb = 1;
+            wejscie.Typ = 2;
+            wejscie.CzasWejscia = DateTime.Now;
+            Assert.AreEqual(null, wejscie.Karta );
+        }
 
-            WorkPlanController workController = new WorkPlanController();
-            string result = ((ViewResult)workController.Create()).ViewName;
-            Assert.AreEqual("Create",result );
+        [TestMethod]
+        //sprawdzamy czy pracownik ma zdefiniowany plan pracy
+        public void EmployeeHasAssignmentWorkPlan()
+        {
+            Pracownicy pracownik = new Pracownicy();
+            pracownik.Id = 1;
+
+            List<PlanPracy> plany = new List<PlanPracy>();
+            PlanPracy plan = new PlanPracy();
+            plan.IdPracownika = 1;
+            plany.Add(plan);
+            plany.Add(new PlanPracy());
+            bool contains = plany.Where(x => x.IdPracownika == pracownik.Id) != null ? true : false;
+
+            Assert.IsFalse(!contains);
         }
     }
 }

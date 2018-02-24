@@ -134,6 +134,7 @@ namespace RCP.Controllers
 
             IEnumerable<Wejscia> wejscia = db.Wejscia;
             IEnumerable<Pracownicy> pracownicy = db.Pracownicy;
+            IEnumerable<Wejscia> wejsciaAll = db.Wejscia;
 
             foreach (var item in wejscia)
             {
@@ -141,7 +142,7 @@ namespace RCP.Controllers
                                        System.Globalization.CultureInfo.InvariantCulture);
             }
 
-            wejscia = wejscia.Where(x => x.CzasWejscia.ToShortDateString().Equals(DateTime.Today.ToShortDateString()));
+            wejscia = wejscia.Where(x => x.CzasWejscia.ToShortDateString().Equals(DateTime.Today.ToShortDateString()) && x.Tryb != null);
             foreach (var item in wejscia)
             {
                 item.Status = wejscia.Where(x => x.Karta == item.Karta).Count()/2==0 ?false:true;
@@ -160,6 +161,18 @@ namespace RCP.Controllers
 
                      }
 
+                }
+            }
+
+            foreach(var itemTryb in wejscia)
+            {
+                foreach(var item in wejsciaAll)
+                {
+                    int roznica = Int32.Parse(item.Czas) - Int32.Parse(itemTryb.Czas) > 0 && Int32.Parse(item.Czas) - Int32.Parse(itemTryb.Czas) < 15 ? (int)item.Typ : 0;
+                    if (roznica != 0)
+                    {
+                        itemTryb.Typ = roznica;
+                    }
                 }
             }
 
