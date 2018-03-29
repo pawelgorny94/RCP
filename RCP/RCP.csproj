@@ -217,6 +217,7 @@
     <Compile Include="Models\Pracownicy.cs" />
     <Compile Include="Models\Przypisania.cs" />
     <Compile Include="Models\RcpContext.cs" />
+    <Compile Include="Models\Settlement.cs" />
     <Compile Include="Models\Wejscia.cs" />
     <Compile Include="Models\Zmiany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -411,6 +412,7 @@
     <Content Include="Views\CreateWorkPlan\_CalendarResult.cshtml" />
     <Content Include="Views\WorkPlan\Info.cshtml" />
     <Content Include="Views\WorkChange\_WorkChangeFormModal.cshtml" />
+    <Content Include="Views\WorkPlan\Settlement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

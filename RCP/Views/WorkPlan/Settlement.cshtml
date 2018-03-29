@@ -1,0 +1,163 @@
+﻿
+@model IEnumerable<RCP.Models.Pracownicy>
+
+@{
+    ViewBag.Title = "Settlement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h4>Rozliczenie przepracowanych godzin pracownika</h4>
+<hr />
+
+
+    <div class="row form-group">
+
+        <div class="col-lg-5">
+            <div class="input-group">
+                <span class="input-group-addon">Wybierz kierownika</span>
+                @Html.DropDownList("GroupSelect", ViewBag.KierList as SelectList, "wszyscy kierownicy ...", new { @class = "form-control group-select" })
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="input-group">
+                <span class="input-group-addon">Wybierz pracownika</span>
+                @Html.DropDownList("idPrac", Enumerable.Empty<SelectListItem>(), "Wybierz pracownika...", new { @class = "form-control group-selectTwo" })
+            </div>
+        </div>
+
+    </div>
+        <div class="okres">
+    <h5>Okres rozliczeniowy</h5>
+        </div>
+    <br />
+    <hr />
+
+
+    <div class="row form-group">
+
+        <div class="col-lg-6">
+            <span> Data od</span>
+            <input id="wej" name="dataOd" type="text" class="date-picker form-control" />
+
+        </div>
+        <div class="col-lg-6">
+            <span> Data do </span>
+            <input id="wyj" name="dataDo" type="text" class="date-picker form-control" />
+
+        </div>
+
+        @*<a href="@Url.Action("SavePlan")" class="btn btn-info btn-lg blue"  style="float:right;">Zapisz</a>*@
+        <input type="button" id="zwroc" value="Wyświetl" class="btn btn-info btn-lg blue" style="float:right;" />
+
+
+
+    </div>
+
+<script>
+
+    //$("#workPlanForm").submit(function (e) {
+    //    var idZmiany = "0";
+
+    //    $('.checkAll').each(function(){
+    //        if($(this).is(':checked')){
+    //            idZmiany = $(this).prop("value");
+    //        }
+
+    //    })
+    //    var newInput = $("<input name='idZmiany' value='"+ idZmiany+"' type='hidden'>");
+    //    $(newInput).appendTo("#workPlanForm");
+    //})
+
+    $('#zwroc').on('click', function () {
+        var id = $("#idPrac").val();
+        var wej = $("#wej").val();
+        var wyj = $("#wyj").val();
+        result(id,wej,wyj);
+    });
+
+    function result(id, wej,wyj) {        
+
+        $(".group-selectTwo").empty();
+        $(".group-selectTwo").append("<option value='0'>Wybierz pracownika</option>");
+        var countryID = $('#countryID').val();
+        var Url="@Url.Action("CalculateWorkTime", "WorkPlan")";
+        $.ajax({
+            url:Url,
+            dataType: 'json',
+            data: { idPrac: id,wej:wej,wyj:wyj },
+            success: function (data) {
+                $(".okres > span:first").remove();
+                $(".okres").append("<span>Liczba przepracowanych godzin:" + data + "</span>");
+            }
+        });
+    }
+
+
+    $('.group-select').on('change', function () {
+        var val = $(this).val();
+        cascadingdropdown(val);
+    });
+
+    function loadList(gr, search) {
+        var group = gr || '';
+        var search = search || '';
+
+        var url = '@Url.Action("SelectPrac", "CreateWorkPlan")' + '?id=' + group;
+        //console.log(url);
+        $.get(url, function (data) {
+            $('.list-container').fadeOut('medium', function () {
+                $('.list-container').html(data);
+                $('.list-container').fadeIn('medium');
+            });
+
+        });
+    }
+
+    function cascadingdropdown(gr, search) {
+        var group = gr || '';
+        var search = search || '';
+
+        $(".group-selectTwo").empty();
+        $(".group-selectTwo").append("<option value='0'>Wybierz pracownika</option>");
+        var countryID = $('#countryID').val();
+        var Url="@Url.Action("SelectPrac", "CreateWorkPlan")";
+        $.ajax({
+            url:Url,
+            dataType: 'json',
+            data: { id: group },
+            success: function (data) {
+                $(".group-selectTwo").empty();
+                $(".group-selectTwo").append("<option value='0'>Wybierz pracownika</option>");
+                $.each(data, function (index, optiondata) {
+                    $(".group-selectTwo").append("<option value='" + optiondata.Id + "'>" + optiondata.Imie + optiondata.Nazwisko + "</option>");
+                });
+            }
+        });
+    }
+
+    $(function () {
+        $(".checkAll").on("change", function () {
+
+            $(".checkAll").each(function () {
+                $(this).prop( "checked", false );
+            })
+
+            $(this).prop("checked", true);
+        })
+
+        var n = new Date($.now());
+        n = n.setMinutes(n.getMinutes() + 2);
+        $('.date-picker').datetimepicker({
+            format: 'Y-m-d H:i',
+            //minDate: n,
+            //dayOfWeekStart: 1,
+            pickTime: false,
+            autoClose: true,
+            timepicker:false
+        });
+
+    })
+
+</script>
+

@@ -33,6 +33,35 @@ namespace RCP.Controllers
             return View(empl);
         }
 
+        public ActionResult Settlement()
+        {
+
+            IEnumerable<Pracownicy> kierownicy = db.Pracownicy.Where(x => x.Status == 1 && x.Kierownik == true).ToList();
+            RedirectToAction("SelectPrac");
+
+            var kierownicys = kierownicy.OrderByDescending(x => x.Imie).Select(s => new SelectListItem
+            { Value = s.Id.ToString(), Text = s.Imie + "   " + s.Nazwisko + " - " + s.KadryId });
+            ViewBag.KierList = new SelectList(kierownicys, "Value", "Text", null);
+
+            return View();
+        }
+
+        public JsonResult CalculateWorkTime(string idPrac, string wej, string wyj)
+        {
+            int idTo = int.Parse(idPrac);
+            //DateTime wejj = DateTime.Parse(wej);
+            //DateTime wyjj = DateTime.Parse(wyj);
+            IEnumerable<Settlement> empl = db.Database.SqlQuery<Settlement>(String.Format("EXEC GetSettlementEmployye @IdPrac={0},@TimeFrom='{1}',@TimeTo='{2}'", idTo, wej, wyj)).ToList();
+            int count = 0;
+            foreach(var item in empl)
+            {
+                count += item.CountTime;
+            }
+            return Json(count.ToString(), JsonRequestBehavior.AllowGet);
+
+        }
+       
+
         // GET: WorkPlan/Details/5
         public ActionResult Details(int? id)
         {
